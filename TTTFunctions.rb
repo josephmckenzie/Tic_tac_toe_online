@@ -20,8 +20,8 @@ class TTTgame
 		end
 	end
 
-	def square_valid?(choice, square_array)
-		choice >= 1 && choice <= 9 && square_array[choice - 1] != "X" && square_array[choice - 1] != "O"	 
+	def square_valid?(choice, gameboard)
+		choice >= 1 && choice <= 9 && gameboard[choice - 1] != "X" && gameboard[choice - 1] != "O"	 
 	end
 
 	def current_player
@@ -49,7 +49,7 @@ class TTTgame
 	end
  
 	def win(board)
-		if board[0] == "X" && board[1] == "X" && board[2] == "X" ||
+		 if board[0] == "X" && board[1] == "X" && board[2] == "X" ||
 			board[3] == "X" && board[4] == "X" && board[5] == "X" ||
 			board[6] == "X" && board[7] == "X" && board[8] == "X" ||
 			board[0] == "X" && board[3] == "X" && board[6] == "X" ||
@@ -66,7 +66,8 @@ class TTTgame
 			board[0] == "O" && board[4] == "O" && board[8] == "O" ||
 			board[2] == "O" && board[4] == "O" && board[6] == "O"
 		true
-		else false
+		else
+		false
 		end
 	end
 
