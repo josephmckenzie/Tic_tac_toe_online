@@ -1,0 +1,51 @@
+
+
+<!DOCTYPE html>
+																					
+<head>
+<link rel="stylesheet" href="/style.css">
+</head>
+
+<body bgcolor="#87CEEB">
+
+<div>
+<br>
+<img src="/mm.png">
+
+<p style="color:red"><b><%=message%></b></p>
+<p style="color:red"><b><%=message3%></b></p>
+
+
+<table> 
+ <tr>
+  <td class="br"><%=board[0]%></td><td class="br"><%=board[1]%></td><td class="b"><%=board[2]%></td>
+ </tr><tr>
+  <td class="br"><%=board[3]%></td><td class="br"><%=board[4]%></td><td class="b"><%=board[5]%></td>
+ </tr><tr>
+  <td class="r"><%=board[6]%></td><td class="r"><%=board[7]%></td><td><%=board[8]%></td>
+ </tr>
+</table>
+
+
+ 
+
+ 
+<p style="color:red"><b><%=message2%></b></p>
+<form action="/tictactoe" method="POST"> 
+  <input type="radio" name="selection" value="X" checked>X
+  <br>
+  <input type="radio" name="selection" value="O">O
+  <br>
+  <input type="submit" name="submit" />
+</form> 
+
+
+
+
+
+
+
+
+
+
+
