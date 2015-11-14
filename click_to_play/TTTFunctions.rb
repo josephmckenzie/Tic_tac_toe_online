@@ -1,5 +1,5 @@
 class TTTgame
-	 attr_accessor :board, :player1, :player2, :current
+	 attr_accessor :board, :player1, :player2, :current, :boardpos
 	
 	def initialize(board, player1, player2, current)
 		
@@ -10,7 +10,7 @@ class TTTgame
 	end
 
 	def boardpos
-		["1", "2", "3", "4", "5", "6", "7", "8", "9"]
+		[" ", " ", " ", " ", " ", " ", " ", " ", " ","11"]
 	end
 	
 	
