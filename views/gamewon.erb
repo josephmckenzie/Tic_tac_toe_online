@@ -1,4 +1,4 @@
-								<%=message%> <%=message%> <%=message%> <%=message%> <%=message%> <%=message%> <%=message%> <%=message%> <%=message%> <%=message%> <%=message%> 
+								
 
 <!DOCTYPE html>
 
@@ -6,13 +6,13 @@
 <link rel="stylesheet" href="/style.css">
 </head>
 
-<body bgcolor="#87CEEB">
+<body bgcolor="#green">
 
 <div>
 <br>
 <img src="/mm.png">
 
-<p style="color:red"><b>Hey man let's play Tic Tac Toe!</b></p>
+<p style="color:red"><b>Hey man let's play Tic Tac Toe!<br><%=message%> <%=message%><br>Hey Wanna play again??</b></p>
 
 
 
@@ -24,11 +24,12 @@
 	</tr><tr>
 		<td class="r"><%=board[6]%></td><td class="r"><%=board[7]%></td><td><%=board[8]%></td>
 	</tr>
+
 </table>
 
 
  
-Hey Wanna play again??
+
 
 
 <form action="/replay" method="POST"> 
