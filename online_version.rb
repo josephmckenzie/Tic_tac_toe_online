@@ -7,7 +7,7 @@ game = TTTgame.new(@board, "", "", 1)
 
 
 get '/tictactoe' do
-	erb :Tictactoe_board1, :locals => {:board => game.board,:message => "Let's play some tic tac toe!", :message2 => "Wanna Pick X or O ?", :message3 => ""}
+	erb :Tictactoe_board1, :locals => {:board => game.board,:message => "Let's play some tic tac toe!", :message2 => "Wanna Pick X or O ?", :message3 => "", :message4 => ""}
 
 end
 
@@ -32,9 +32,9 @@ post '/board' do
 				game.current = game.switch_players()
 				erb :Tictactoe_board2, :locals => { :current => game.current, :message => "Player #{player_marker} has chosen square #{params[:choice]}.", :board => game.board }
 			elsif game.win(game.board) == true
-				erb :gamewon, :locals => {:message => "Player #{player_marker} has won.", :board => game.board }
+				erb :Tictactoe_board1, :locals => {:message => "", :message2 => "Wanna Pick X or O ?", :message3 => "!!Play again!!",:message4 => "Player #{player_marker} has won.", :board => game.board }
 			else game.is_board_full?(game.board) == true
-			erb :gamewon, :locals => {:message => "Players have tied.", :board => game.board }
+			erb :Tictactoe_board1, :locals => {:message => "", :message2 => "Wanna Pick X or O ?", :message3 => "",:message4 => "Players have tied.", :board => game.board }
 			end
 			else erb :Tictactoe_board2, :locals => { :current => game.current, :message => "Choice is already Taken Try again", :board => game.board }
 		end
