@@ -36,17 +36,14 @@ post '/board' do
 			else game.is_board_full?(game.board) == true
 			erb :gamewon, :locals => {:message => "Players have tied.", :board => game.board }
 			end
-				
-	else
-		erb :Tictactoe_board2, :locals => { :current => game.current, :message => "You have made an invalid choice.", :board => game.board }
-	end
+		end
  end
 
 post '/replay' do
 	choice = params[:selection]
 	game = TTTgame.new(["1", "2", "3", "4", "5", "6", "7", "8", "9"], "", "", 1)
 		if choice == "y"
-			redirect to('/tictactoe')
+			erb :Tictactoe_board1, :locals => {:board => game.board,:message => "Let's play some tic tac toe!", :message2 => "Wanna Pick X or O ?", :message3 => ""}
 			
 		else
 			erb :Tictactoe_board1, :locals => {:board => game.board,:message => "To bad your gonna play over and over and over", :message2 => "!!!Pick X or O!!!", :message3 => "It will Never End!!!! HAHAHA"}

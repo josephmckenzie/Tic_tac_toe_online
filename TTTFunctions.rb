@@ -8,6 +8,9 @@ class TTTgame
 		@current = current
 	end
 
+	
+	
+	
 	def marker_valid?(player1) 
 	 player1 == "X" || player1 == "O"
 	end
