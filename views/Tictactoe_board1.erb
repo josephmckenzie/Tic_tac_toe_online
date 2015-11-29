@@ -1,51 +1,53 @@
 
-
 <!DOCTYPE html>
 																					
 <head>
 <link rel="stylesheet" href="/style.css">
 </head>
-
-<body bgcolor="green">
-
+<style>
+p.serif {
+    font-family:"Comic Sans MS", cursive, sans-serif
+}
+p.sansserif {
+    font-family: Arial, Helvetica, sans-serif;
+}
+</style>
+<body bgcolor="#blue">
 <div>
 <br>
 <img src="/mm.png">
 
-<p class="sans-serif" "color:red"><b><%=message%></b></p>
-<p class="serif" "color:red"><b><%=message4%> <%=message4%><br><%=message3%></b></p>
+<p class="serif" "color:blue"><b><%=message%></b></p>
+<p class="serif" "color:blue"><b><%=message4%> <%=message4%><br><%=message3%></b></p>
+
 
 
 <table> 
  <tr>
-  <td class="br"><%=board[0]%></td><td class="br"><%=board[1]%></td><td class="b"><%=board[2]%></td>
+  <td class="br"> <input type="submit" name="choice" value="1"><%=board[0]%></td><td class="br"> <input type="submit" name="choice" value="2"><%=board[1]%></td><td class="b"> <input type="submit" name="choice" value="3"><%=board[2]%></td>
  </tr><tr>
-  <td class="br"><%=board[3]%></td><td class="br"><%=board[4]%></td><td class="b"><%=board[5]%></td>
+  <td class="br"> <input type="submit" name="choice" value="4"><%=board[3]%></td><td class="br"> <input type="submit" name="choice" value="5"><%=board[4]%></td><td class="b"> <input type="submit" name="choice" value="6"><%=board[5]%></td>
  </tr><tr>
-  <td class="r"><%=board[6]%></td><td class="r"><%=board[7]%></td><td><%=board[8]%></td>
+  <td class="r"> <input type="submit" name="choice" value="7"><%=board[6]%></td><td class="r"> <input type="submit" name="choice" value="8"><%=board[7]%></td><td> <input type="submit" name="choice" value="9"><%=board[8]%></td>
  </tr>
 </table>
 
 
- 
 
- 
-<p style="color:red"><b><%=message2%></b></p>
+
+
+<p style="color:blue"><b><%=message2%></b></p><br>
+<p style="text-align:center"><%=mindchanger%> </p>
+
 <form action="/tictactoe" method="POST"> 
   <input type="radio" name="selection" value="X" checked>X
   <br>
   <input type="radio" name="selection" value="O">O
   <br>
-   <input type="submit" name="submit" value ="Click Me To Submit Your Choice">
+  <input type="radio" name="gamemode" value="Human">Human vs Human 
+  <br>
+  <input type="radio" name="gamemode" value="Computer" checked >Human vs Computer
+  <br>
+  <input type="submit" name="submit">
 </form> 
-
-
-
-
-
-
-
-
-
-
 

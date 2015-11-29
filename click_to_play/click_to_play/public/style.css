@@ -1,0 +1,20 @@
+
+
+img {display:block ;margin:0  auto;border: 8px solid black;}
+
+
+
+table {font:3.5em times; border-collapse: collapse; margin:auto; text-align:center;}
+td {padding:1px 12px;}
+td.br {border-bottom: 11px solid blue; border-right: 11px solid blue ;}
+td.b {border-bottom: 11px solid blue;}
+td.r {border-right: 11px solid blue;}
+
+p {text-align:center;}
+
+h3 {text-align:center;}
+
+form {text-align:center;}
+select {text-align:center;}
+
+input.box {width:20px;text-align:center;}
