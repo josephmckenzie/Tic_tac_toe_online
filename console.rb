@@ -1,17 +1,57 @@
-class Player
-   attr_accessor :player1, :player2, :current, :mode
-  def initialize(board, player1, player2, current, mode)
-    @board = board_position_array
-    @player1 = player1
-    @player2 = player2
-    @current = current
+class TTTgame
+  
+
+  def board(l, s)
+
+puts "\n" + l + 
+"""
+ #{s[0]} | #{s[1]} | #{s[2]} 
+---|---|---
+ #{s[3]} | #{s[4]} | #{s[5]} 
+---|---|---
+ #{s[6]} | #{s[7]} | #{s[8]}  
+   
+"""
+end
+
+def start_game
+@squares = ["1", "2", "3", "4", "5", "6", "7", "8", "9"]
+@nadda = Array.new(9, " ")
+
+board("Tic tac toe t", @sqrs)
+board("The current board is:", @empty)
+set_players
+end
+  def board_position_array
+    ["1", "2", "3", "4", "5", "6", "7", "8", "9"]
+
+  end
+  
+  def random_select(board)
+    array = rand(1..9)
+    if square_valid?(array,board) == false
+      random_select(board)
+    else
+      player_marker = current_player()
+      board[array - 1] = player_marker
     end
- 
-def p2(player1)
+  end
+  
+
+  def marker_valid?(player1) 
+   player1 == "X" || player1 == "O"
+  end
+
+
+  def p2(player1)
     if  player1 == "X"
       player2 = "O"
     else player2 = "X"
     end
+  end
+
+  def square_valid?(choice, gameboard)
+    choice >= 1 && choice <= 9 && gameboard[choice - 1] != "X" && gameboard[choice - 1] != "O"   
   end
 
   def current_player
@@ -21,37 +61,15 @@ def p2(player1)
     player2
     end
   end
-
-def opp_player
-	if current == 1
-		player 2
-	else
-		player 1
-	end
-end
-
-def switch_players 
+ 
+  def switch_players 
     if current == 1
       current = 2
     else current = 1
     end
   end
  
-end
-
-
-class Gameboard
-
-	attr_accessor :board 
-	def initialize
-		@board=  ["1", "2", "3", "4", "5", "6", "7", "8", "9"]
- 
- 
-	def square_valid?(choice, gameboard)
-		choice >= 1 && choice <= 9 && gameboard[choice - 1] != "X" && gameboard[choice - 1] != "O"   
-	end
-  
-def is_board_full?(squares)
+  def is_board_full?(squares)
     board = squares.join(",")
     if board =~ (/\d/)
       false
@@ -83,49 +101,4 @@ def is_board_full?(squares)
     end
   end
   
-end		
-
 end
-
-
-
- 
-
- 
-class AI 
-	attr_accessor :level 
-  
-	def ai_move(level)
-		if "easy"
-		
-			random_select(board)
-		elsif "medium"
-			
-			random_select(board)
-		else 
-			random_select(board)
-		end
-	end
-	
-		
-		
-		
-
-
-  def random_select(board)
-    array = rand(1..9)
-    if square_valid?(array,board) == false
-      random_select(board)
-    else
-      player_marker = current_player()
-      board[array - 1] = player_marker
-    end
-  end
-  
-
-
-end
-
- 
-  
-

@@ -2,11 +2,13 @@ require 'sinatra'
 require_relative "TTTFunctions.rb"
 
 
-game = TTTgame.new(@board, "", "","",1)
+gameboard = Gameboard.new()
+players = Players.new()
+ai =AI.new()
 
 
 get '/tictactoe' do
-	erb :Tictactoe_board1, :locals => {:board => game.board,
+	erb :Tictactoe_board1, :locals => {:board => gameboard.board,
 									   :message => "TicTacToe Time!",:message2 => "Please Pick your opponent, Human or Computer ?", 
 									   :message3 => "Choose a marker Pick X or O ",:message4 => "",
 									   :mindchanger => ""}
@@ -40,7 +42,8 @@ post '/board' do
 				  
 			    if game.mode == "Computer" 
 			     	game.random_select(game.board) 
-			     	if game.is_board_full?(game.board) == false && game.win(game.board) == false
+			     	
+					if game.is_board_full?(game.board) == false && game.win(game.board) == false
 				      game.current = game.switch_players()
 				      erb :Tictactoe_board2, :locals => { :current => game.current, 
 			                                              :message => "", 
