@@ -5,17 +5,19 @@
 <link rel="stylesheet" href="/style.css">
 </head>
 
-<body bgcolor="orange">
+<body bgcolor="green">
 
 <div>
 <br>
 <img src="/mm.png">
 
-<p style="color:red"><b><br><%=message%><br><%=message5%><br><%=gametype%></b></p>
+<p style="color:red"><b>Tic Tac Toe Time<br>
+<%=message%><%=message2%><br><%=invaild%>
+<br></b></p>
 
 
 
-<form action="/board" method="POST"> 
+<form action="/game" method="POST"> 
 
 <table> 
  <tr>
@@ -26,20 +28,5 @@
   <td class="r"> <input type="submit" name="choice" value="7"><%=board[6]%></td><td class="r"> <input type="submit" name="choice" value="8"><%=board[7]%></td><td> <input type="submit" name="choice" value="9"><%=board[8]%></td>
  </tr>
 </table>
+  
  </form> 
-
-
-
-
-
-
-
-
- 
-
-
-
-
-
-
-

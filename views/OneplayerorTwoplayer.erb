@@ -2,7 +2,9 @@
 
 <head>
 <link rel="stylesheet" href="/style.css">
+
 </head>
+
 
 <body bgcolor="green">
 
@@ -15,7 +17,7 @@
 
 
 
-<form action="/board" method="POST"> 
+
 
 <table> 
  <tr>
@@ -27,4 +29,10 @@
  </tr>
 </table>
  
- </form> 
+ <form action="/tictactoe" method="POST">
+				<input type="radio" name="gametype" value="1">  1 Player Game
+				<br>
+				<input class="2p" type="radio" name="gametype" value="2">  2 Player Game
+				<br>
+				<input type="submit" name="submit" value="Submit">
+			</form>
