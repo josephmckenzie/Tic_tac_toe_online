@@ -18,7 +18,6 @@ class Tictactoe_tests < Minitest::Test
 		end
 			
 	def test_valid_move
-		choice = 7
 		game = Gameboard.new 
 		game.board[0] = "X"
 		assert_equal(true,game.square_available?(1))
@@ -33,6 +32,30 @@ class Tictactoe_tests < Minitest::Test
 		assert_equal(false,[11].include?(position))
 	
 	end
+	
+	def test_update_board
+		game = Gameboard.new 
+		game.board[0] = "X"
+		assert_equal(["X", "2", "3", "4", "5", "6", "7", "8", "9"], game.board )
+		
+		end
+	
+		# def test_game_winning
+		# game = Gameboard.new
+		# ai = AI.new
+		# assert_equal(["X", "X", "O", "O", "5", "0", "X", "O", "9"], ai.available_moves(4))
+		
+
+	# end
+	
+	
+	
+	
+	
+	
+	
+	
+	
 end
 		
 
@@ -44,13 +67,6 @@ end
 		# assert_equal("",game.p2)
 		# assert_equal("",game.currentplayer)
 
-		# end
-		
-	# def test_update_board
-		# game = TTTgame.new(@board,"","","",1) 
-		# game.board[0] = "X"
-		# assert_equal(["X", "2", "3", "4", "5", "6", "7", "8", "9"], game.board )
-		
 		# end
 		
 	# def test_update_marker
@@ -69,12 +85,7 @@ end
 		
 		# end
 
-	# def test_game_winning
-		# game = TTTgame.new(board_position_array,"","",1) 
-		# assert_equal(["X", "X", "O", "O", "5", "0", "X", "O", "9"], game.random_select(board))
-		
 
-	# end
 	
 		
 		
