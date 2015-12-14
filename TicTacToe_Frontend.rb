@@ -1,14 +1,18 @@
 require 'sinatra'
 
-require_relative "TTT_functions.rb"
+require_relative "ai.rb"
+require_relative"gameplayers.rb"
+require_relative"gameboard.rb"
 
 ai = AI.new()
 
 get '/tictactoe' do
+	tyoe= params[:typeofgame]
 	erb :OneplayerorTwoplayer, :locals => {:message => "", :board => ai.play_board.board}
 end
 
 post '/tictactoe' do
+gameplayers = Gameplayers.new
 	ai.players.type = params[:gametype]
 	if ai.players.type == "1"
 		erb :howhard, :locals => {:message => "You Chose to play a 1 player game", :board => ai.play_board.board}

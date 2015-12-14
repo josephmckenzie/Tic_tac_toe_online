@@ -1,9 +1,10 @@
-
 <!DOCTYPE html>
 
 <head>
 <link rel="stylesheet" href="/style.css">
+
 </head>
+
 
 <body bgcolor="green">
 
@@ -16,7 +17,7 @@
 
 
 
-<form action="/board" method="POST"> 
+
 
 <table> 
  <tr>
@@ -27,21 +28,12 @@
   <td class="r"> <input type="submit" name="choice"  value="7"><%=board[6]%></td><td class="r"> <input type="submit" name="choice"  value="8"><%=board[7]%></td><td> <input type="submit" name="choice"  value="9"><%=board[8]%></td>
  </tr>
 </table>
+<br><br>
  
- </form> 
-
- 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+ <form action="/tictactoe" method="GET">
+				<input type="submit" name="typeofgame" value="Play A Game Online">
+				<br>
+				</form>
+				<p><button onclick="window.open('Joes_trippy_adventure_game.exe')">
+    Download & Play In Dos
+</button></p>
