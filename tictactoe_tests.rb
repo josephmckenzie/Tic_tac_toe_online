@@ -30,17 +30,12 @@ class Tictactoe_tests < Minitest::Test
 		board = AI.new
 		position = board.computer_random_move(board)
 		assert_equal(true, [1,2,3,4,5,6,7,8,9].include?(position))
-	end	
+		assert_equal(false,[11].include?(position))
 	
-	
-		#keeps coming back false but the baord is full so wth?
-	# def test_for_full_board
-		# board = Gameboard.new
-		# assert_equal(true,board.board_full?(['1','2','3','4','5','6','7','8','9']))
-	# end
-		
-		
+	end
 end
+		
+
 
 	# def test_initialize
 		# game = TTTgame.new(@board,"","",1,"") 
