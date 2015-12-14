@@ -1,4 +1,5 @@
 class AI
+
 	
 	attr_accessor :level, :fork_routes, :play_board, :players
 

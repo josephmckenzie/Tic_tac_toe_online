@@ -10,7 +10,7 @@ class Gameboard
 			board[choice] != "X" && board[choice] != "O"
 		end
 		
-		def board_full?(full)
+		def board_full?
 			board_tos = board.join(",")
 			board_tos =~ (/\d/) ? false : true
 		end
@@ -25,5 +25,3 @@ class Gameboard
 			result
 		end
 	end
-
-		

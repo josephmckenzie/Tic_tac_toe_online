@@ -47,15 +47,7 @@ class Tictactoe_tests < Minitest::Test
 		
 
 	# end
-	
-	
-	
-	
-	
-	
-	
-	
-	
+		
 end
 		
 
@@ -70,25 +62,7 @@ end
 		# end
 		
 	# def test_update_marker
-		# game = Gamplayers.new
+		# game = Gameplayers.new
 		
 		# assert_equal("X",game.p2)
 	# end
-	
-	# def test_valid_move
-		# choice = 7
-		# game = TTTgame.new(@board,"","",1,"") 
-		# game.board[0] = "X"
-		# assert_equal(true,game.square_valid?(choice))
-		# assert_equal(false,game.square_valid?(0))
-		# assert_equal(false,game.square_valid?(1))
-		
-		# end
-
-
-	
-		
-		
-		
-		
-		
