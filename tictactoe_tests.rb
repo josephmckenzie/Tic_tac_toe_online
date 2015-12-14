@@ -24,10 +24,19 @@ class Tictactoe_tests < Minitest::Test
 		# assert_equal(true,board.board_full?(['1','2','3','4','5','6','7','8','9']))
 	# end
 	
+		
+	def test_valid_move
+		choice = 7
+		game = Gameboard.new 
+		game.board[0] = "X"
+		assert_equal(true,game.square_available?(1))
+		assert_equal(false,game.square_available?(0))
+		
+		end
 	
-		
-		
-		
+	
+	
+	
 		
 		
 end
