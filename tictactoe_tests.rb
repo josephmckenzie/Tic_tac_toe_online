@@ -16,46 +16,30 @@ class Tictactoe_tests < Minitest::Test
 		player = Gameplayers.new
 		assert_equal("X",player.p2)
 		end
-
-		
-		#keeps coming back false but the baord is full so wth?
-	# def test_for_full_board
-		# board = Gameboard.new
-		# assert_equal(true,board.board_full?(['1','2','3','4','5','6','7','8','9']))
-	# end
-	
-		
+			
 	def test_valid_move
 		choice = 7
 		game = Gameboard.new 
 		game.board[0] = "X"
 		assert_equal(true,game.square_available?(1))
 		assert_equal(false,game.square_available?(0))
-		
+		end
+	
+	 def test_random_move
+		game = AI.new
+		newboard = ['1','2',' ','4','5','6','7','8','9']
+		assert_equal(true, game.computer_random_move(2))
 		end
 	
 	
-	
-	
+		#keeps coming back false but the baord is full so wth?
+	# def test_for_full_board
+		# board = Gameboard.new
+		# assert_equal(true,board.board_full?(['1','2','3','4','5','6','7','8','9']))
+	# end
 		
 		
 end
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 	# def test_initialize
 		# game = TTTgame.new(@board,"","",1,"") 
