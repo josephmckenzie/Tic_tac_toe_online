@@ -24,4 +24,4 @@ class Gameboard
 			end
 			result
 		end
-	end
+end
