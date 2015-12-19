@@ -71,7 +71,7 @@ end
 get '/status' do
 	if play_board.winner?(players.current_player) == true
 		redirect to('/win')
-	else play_board.board_full?() == true
+	elsif play_board.board_full?() == true
 		redirect to('/tie')
 	end
 	
