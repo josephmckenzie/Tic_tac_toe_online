@@ -6,7 +6,7 @@ class Easy
 		@game_board = game_board
 	end
 	
-	def computer_random_move()
+	def computer_move()
 		n = rand(0..8)
 		if game_board.square_available?(n) == false
 			computer_random_move()

@@ -39,30 +39,12 @@ class Tictactoe_tests < Minitest::Test
 		assert_equal(["X", "2", "3", "4", "5", "6", "7", "8", "9"], game.board )
 		
 		end
-	
-		# def test_game_winning
-		# game = Gameboard.new
-		# ai = AI.new
-		# assert_equal(["X", "X", "O", "O", "5", "0", "X", "O", "9"], ai.available_moves(4))
 		
-
-	# end
+	def test_for_O_win
+		game = Gameplayers.new()
+		game.player1 = "O"
 		
+		game.board = ["1","2","3","4","5","6","O","O","O"]
+		assert_equal(true, game.winner?)
+	end
 end
-		
-
-
-	# def test_initialize
-		# game = TTTgame.new(@board,"","",1,"") 
-		# assert_equal(["1", "2", "3", "4", "5", "6", "7", "8", "9"], game.board)
-		# assert_equal("",game.p1)
-		# assert_equal("",game.p2)
-		# assert_equal("",game.currentplayer)
-
-		# end
-		
-	# def test_update_marker
-		# game = Gameplayers.new
-		
-		# assert_equal("X",game.p2)
-	# end
