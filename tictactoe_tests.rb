@@ -26,8 +26,8 @@ class Tictactoe_tests < Minitest::Test
 	
 
 	def test_random_move
-		board = AI.new
-		position = board.computer_random_move(board)
+		board = Easy.new
+		position = board.computer_move(board)
 		assert_equal(true, [1,2,3,4,5,6,7,8,9].include?(position))
 		assert_equal(false,[11].include?(position))
 	
@@ -40,11 +40,4 @@ class Tictactoe_tests < Minitest::Test
 		
 		end
 		
-	def test_for_O_win
-		game = Gameplayers.new()
-		game.player1 = "O"
-		
-		game.board = ["1","2","3","4","5","6","O","O","O"]
-		assert_equal(true, game.winner?)
-	end
 end
