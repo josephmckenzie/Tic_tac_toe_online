@@ -1,9 +1,6 @@
 
 require 'sinatra'
-require 'rubygems'
-require 'sinatra'
-# gem 'emk-sinatra-url-for'
-require 'sinatra/url_for'
+
 require_relative "random.rb"
 require_relative "medium.rb"
 require_relative "negamax.rb"
@@ -65,7 +62,7 @@ post '/game' do
 	
 	if play_board.square_available?(choice - 1) == true
 		play_board.board[choice - 1] = player_marker
-		redirect url_for('/status')
+		redirect to('/status')
 	else
 		erb :squares, :locals => {:p1 => players.player1, 
 								  :p2 => players.player2, 
