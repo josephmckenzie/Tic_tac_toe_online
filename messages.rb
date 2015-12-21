@@ -1,12 +1,14 @@
+require_relative "gameplayers.rb"
+
+require_relative"gameboard.rb"
+
+
+
 class Messages
-attr_reader :play, :one_player , :two_player, :easy , :mild
-
-  # def initialize(game_board, game_players)
-		# @game_board = game_board
-		# @game_players = game_players
-		# @fork_routes = [[0,2,6],[0,2,8],[0,6,8],[2,6,8],[0,2,5],[0,2,3],[5,6,8],[3,6,8],[0,2,4],[2,4,8],[0,4,6],[6,4,8]]
-	# end
-
+attr_reader :play, :one_player, :two_player, :easy, :mild, :simple, :medium, :hard, :invalid
+attr_accessor :players, :gameboard
+players = Gameplayers.new
+board = Gameboard.new
 
 def play
 "Lets Play Some Tic-Tac-Toe"
@@ -19,6 +21,45 @@ end
 def two_player
 "You Chose a 2 player game"
 end
+
+def easy
+"Really your gonna play EASY??"
+end
+
+def mild
+"Really your gonna play Mild?? Mild is a sauce not a difficulty."
+end
+
+def simple
+"Really your gonna play Simple??"
+end
+
+def medium 
+"MEDIUM is cool but how about HARD??"
+end
+
+def negamax
+"Hard?? You know it cant be beat right?"
+end
+
+def invalid
+players = Gameplayers.new
+choices = Gameboard.new
+choice=choices.square_available?()
+players.current = players.current
+"Hey player #{players.current} #{choice} is already taken"
+end
+
+
+
+
+
+
+
+
+
+
+
 
 
 

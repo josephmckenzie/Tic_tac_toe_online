@@ -1,5 +1,6 @@
-
+require_relative "gameplayers.rb"
 require_relative "messages.rb"
+require_relative"gameboard.rb"
 require "minitest/autorun"
 
 class Tictactoe_tests < Minitest::Test
@@ -11,19 +12,91 @@ class Tictactoe_tests < Minitest::Test
 	end
 	
 	def test_for_game_type_message
-	message=Messages.new
-	assert_equal("You Chose a 1 Player VS the Computer Game",message.one_player)
-	assert_equal("You Chose a 2 player game",message.two_player)
+		message=Messages.new
+		assert_equal("You Chose a 1 Player VS the Computer Game",message.one_player)
+		assert_equal("You Chose a 2 player game",message.two_player)
 	end
 
 	
 	def test_for_level_message
-	message=Messages.new
-	assert_equal("Really your gonna play EASY??",message.easy)
-	assert_equal( "Really your gonna play Mild?? Mild is a sauce not a difficulty.",message.mild)
+		message=Messages.new
+		assert_equal("Really your gonna play EASY??",message.easy)
+		assert_equal( "Really your gonna play Mild?? Mild is a sauce not a difficulty.",message.mild)
+		assert_equal("Really your gonna play Simple??", message.simple)
+		assert_equal("MEDIUM is cool but how about HARD??", message.medium)
+		assert_equal("Hard?? You know it cant be beat right?", message.negamax)
 	end
+
+	
+	# def test_for_invalid_message
+		# message=Messages.new
+		# players = Gameplayers.new
+		# choice = Gameboard.new
+		# assert_equal("Hey #{players.current} #{choice} is already taken",message.invalid )
+	# end
+
+	
+	def test_square_available?
+	game = Gameboard.new
+
+	
+	
+	assert_equal(false, game.board_full?)
+	end
+	
+	def test_valid_marker
+		game = Gameplayers.new
+		
+		player1 = "O"
+		
+		assert_equal("X", game.p2)
+		assert_equal("O", player1)
+
+	end
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 end
 
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	# def test_start_game_board
 		# board = Gameboard.new
 		# assert_equal(['1','2','3','4','5','6','7','8','9'], board.board)

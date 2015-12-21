@@ -32,19 +32,19 @@ post '/marker' do
 		players.level = params[:level] 
 		if players.level == "easy"
 		ai = Random.new(play_board)
-			erb :marker, :locals => {:message => "Really your gonna play EASY??", :board => play_board.board}
+			erb :marker, :locals => {:message => message.easy, :board => play_board.board}
 		elsif players.level =="mild"
 		ai = ModEasy.new(play_board, players)
-			erb :marker, :locals => {:message => "Really your gonna play Mild??", :board => play_board.board}
+			erb :marker, :locals => {:message => message.mild, :board => play_board.board}
 		elsif players.level =="simple"
 		ai = Simple.new(play_board, players)
-			erb :marker, :locals => {:message => "Really your gonna play Simple??", :board => play_board.board}
+			erb :marker, :locals => {:message => message.simple, :board => play_board.board}
 		elsif players.level == "medium"
 		ai = Medium.new(play_board, players)
-			erb :marker, :locals => {:message => "MEDIUM is cool but how about HARD??", :board => play_board.board}
+			erb :marker, :locals => {:message => message.medium, :board => play_board.board}
 		else 	
 		ai = Negamax.new(play_board,players)
-			erb :marker, :locals => {:message => "Hard?? You know it cant be beat right?", :board => play_board.board}
+			erb :marker, :locals => {:message => message.negamax, :board => play_board.board}
 
 		end
 end
@@ -67,7 +67,7 @@ post '/game' do
 	else
 		erb :squares, :locals => {:p1 => players.player1, 
 								  :p2 => players.player2, 
-								  :invaild => "Hey #{players.current} #{choice} is already taken", 
+								  :invaild => message.invalid, 
 								  :message2 => "Please choose again.", 
 								  :current => players.current, 
 								  :board => play_board.board, 
