@@ -42,13 +42,13 @@ def negamax
 "Hard?? You know it cant be beat right?"
 end
 
-def invalid
-players = Gameplayers.new
-choices = Gameboard.new
-choice=choices.square_available?()
-players.current = players.current
-"Hey player #{players.current} #{choice} is already taken"
-end
+# def invalid
+# players = Gameplayers.new
+# choices = Gameboard.new
+# choice=choices.square_available?()
+# players.current = players.current
+# "Hey player #{players.current} #{choice} is already taken"
+# end
 
 
 

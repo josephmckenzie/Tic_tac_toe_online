@@ -11,7 +11,7 @@ require_relative "simple.rb"
 message = Messages.new
 play_board = Gameboard.new()
 players = Gameplayers.new()
-# ai_initi = false
+
 ai = ""
 
 
@@ -67,7 +67,7 @@ post '/game' do
 	else
 		erb :squares, :locals => {:p1 => players.player1, 
 								  :p2 => players.player2, 
-								  :invaild => message.invalid, 
+								  :invaild => "Hey player #{players.current} #{choice} is already taken", 
 								  :message2 => "Please choose again.", 
 								  :current => players.current, 
 								  :board => play_board.board, 
