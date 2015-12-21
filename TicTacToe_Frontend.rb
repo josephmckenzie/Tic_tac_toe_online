@@ -62,7 +62,7 @@ post '/game' do
 	
 	if play_board.square_available?(choice - 1) == true
 		play_board.board[choice - 1] = player_marker
-		redirect to('/status')
+		redirect to('https://mmtictactoe.herokuapp.com/status')
 	else
 		erb :squares, :locals => {:p1 => players.player1, 
 								  :p2 => players.player2, 
@@ -78,14 +78,14 @@ get '/computerai' do
 	player_marker = players.current_player()
 	move = ai.computer_move()
 	play_board.board[move] = player_marker
-		redirect to('/status')
+	redirect to('https://mmtictactoe.herokuapp.com/status')
 end
 
 get '/status' do
 	if play_board.winner?(players.current_player) == true
-		redirect to('/win')
+		redirect to('https://mmtictactoe.herokuapp.com/win')
 	elsif play_board.board_full?() == true
-		redirect to('/tie')
+		redirect to('https://mmtictactoe.herokuapp.com/tie')
 	end
 	
 	players.current = players.change()
@@ -113,7 +113,7 @@ post '/new' do
 	play_board = Gameboard.new()
 	players = Gameplayers.new()
 	ai_initi = false
-	redirect to('/tictactoe')
+	redirect to('https://mmtictactoe.herokuapp.com/tictactoe')
 end
 
 
