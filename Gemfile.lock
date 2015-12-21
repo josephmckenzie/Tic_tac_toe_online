@@ -3,9 +3,10 @@ GEM
   specs:
 
 PLATFORMS
-  java
+  x86-mingw32
 
 DEPENDENCIES
+  sinatra (= 1.1.0)
 
 BUNDLED WITH
    1.11.2

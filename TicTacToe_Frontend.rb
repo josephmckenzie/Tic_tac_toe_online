@@ -75,22 +75,10 @@ post '/game' do
 end
 
 get '/computerai' do
-		player_marker = players.current_player()
-	# if players.level == "easy"
-		# ai = Easy.new(play_board) if ai_initi == false
-		# ai_initi = true
-		# move = ai.computer_move()
-	# elsif players.level == "medium"
-		# ai = Medium.new(play_board, players) if ai_initi == false
-		# ai_initi = true
-		move = ai.computer_move()
-	# elsif players.level == "hard"	
-		# ai = Negamax.new(play_board) if ai_initi == false
-		# ai_initi = true
-		# move = ai.computer_move(player_marker)
-	# end
+	player_marker = players.current_player()
+	move = ai.computer_move()
 	play_board.board[move] = player_marker
-	redirect to('/status')
+		redirect to('/status')
 end
 
 get '/status' do
