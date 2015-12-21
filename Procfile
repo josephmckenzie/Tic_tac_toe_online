@@ -1,1 +1,1 @@
-web: bundle exec TicTacToe_Frontend.rb.rb -p $PORT
+web: bundle exec TicTacToe_Frontend.rb -p $PORT
