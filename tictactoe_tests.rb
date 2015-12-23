@@ -38,16 +38,20 @@ class Tictactoe_tests < Minitest::Test
 	
 	def test_square_available?
 	game = Gameboard.new
-	assert_equal(true, game.square_available?(1,["1","2","3","4","5","6","7","8","9"]))
-	# assert_equal(false,game.square_available?(4,["1","2","3","4","5","6","7","8","9"]))
+
+	
+	
+	assert_equal(false, game.board_full?)
 	end
 	
-	def test_p1_p2_markers
+	def test_valid_marker
 		game = Gameplayers.new
 		
 		player1 = "O"
+		
 		assert_equal("X", game.p2)
 		assert_equal("O", player1)
+
 	end
 	
 	

@@ -1,4 +1,4 @@
-require 'tilt/erb'
+
 require 'sinatra'
 require_relative "messages.rb"
 require_relative "random.rb"
