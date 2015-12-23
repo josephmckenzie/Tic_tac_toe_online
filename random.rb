@@ -7,7 +7,7 @@ class Random
 	end
 	
 	def computer_move()
-		n = rand(0..8)
+		n = rand(0...9)
 		if game_board.square_available?(n) == false
 			computer_move()
 		else

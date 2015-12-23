@@ -12,9 +12,11 @@ class Gameboard
 		
 		def board_full?
 			board_tos = board.join(",")
-			board_tos =~ (/\d/) ? false : true
+			if board_tos =~ (/\d/)  
+			false 
+			else true
 		end
-		
+			end
 		def winner?(player)
 			result = false
 			winning_routes.each do |group|
@@ -25,3 +27,5 @@ class Gameboard
 			result
 		end
 	end
+	
+	
