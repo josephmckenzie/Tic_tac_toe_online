@@ -1,5 +1,6 @@
 require_relative "gameplayers.rb"
 require_relative "messages.rb"
+require_relative "negamax.rb"
 require_relative"gameboard.rb"
 require "minitest/autorun"
 
@@ -27,22 +28,13 @@ class Tictactoe_tests < Minitest::Test
 		assert_equal("Hard?? You know it cant be beat right?", message.negamax)
 	end
 
-	
-	# def test_for_invalid_message
-		# message=Messages.new
-		# players = Gameplayers.new
-		# choice = Gameboard.new
-		# assert_equal("Hey #{players.current} #{choice} is already taken",message.invalid )
+		
+	# def test_full_board?
+	# game = Gameboard.new
+	# assert_equal(true, game.board_full?(["X","X","O","X","X","O","X","O","X"]))
+	# assert_equal(false, game.board_full?(["X","2","O","X","X","O","X","O","X"]))
 	# end
-
 	
-	def test_square_available?
-	game = Gameboard.new
-
-	
-	
-	assert_equal(false, game.board_full?)
-	end
 	
 	def test_valid_marker
 		game = Gameplayers.new
@@ -54,24 +46,72 @@ class Tictactoe_tests < Minitest::Test
 
 	end
 	
+	def test_for_new_board
+		board = Gameboard.new
+		assert_equal(['1','2','3','4','5','6','7','8','9'], board.board)
+	end	
 	
 	
+	def test_for_change_player
+		game = Gameplayers.new
+		game.current = 1
+		assert_equal(2, game.change)
+		game.current = 2
+		assert_equal(1, game.change)
+	end
 	
+	def test_for_valid_marker
+	game = Gameplayers.new
+		assert_equal(true, game.marker_valid?("O"))
+		assert_equal(true, game.marker_valid?("X"))
+		assert_equal(false, game.marker_valid?("L"))
+		assert_equal(false, game.marker_valid?("R"))
+	end
 	
+	def test_current_player
+		game = Gameplayers.new
+		assert_equal(game.player1, game.current_player)
+		game.current = 2
+		assert_equal(game.player2, game.current_player)
+	end
 	
+	# def test_for_full_board
+	# game = Gameboard.new
 	
+		# assert_equal(true, game.board_full?(["X","o","O","X","X","O","X","O","X"]))
+		# assert_equal(false, game.board_full?(["X","O","O","X","X","O","X","8","X"]))
+	# end
 	
+	# def test_for_we_got_a_winner?
+	# game= Gameboard.new 
+
+		# assert_equal(true, game.winner?(["X","X","X","X","X","6","7","8","9"]))
+		# assert_equal(false, game.winner?(["1","X","X","X","5","6","7","8","9"]))
+		# assert_equal(true, game.winner?(["1","2","3","O","O","O","7","8","9"]))
+	# end
 	
-	
-	
-	
-	
-	
+	def test_update_board
+		game = Gameboard.new 
+		game.board[0] = "O"
+		assert_equal(["O", "2", "3", "4", "5", "6", "7", "8", "9"], game.board )
+		game.board[3] = "X"
+		assert_equal(["O", "2", "3", "X", "5", "6", "7", "8", "9"], game.board )
+		game.board[4] = "O"
+		assert_equal(["O", "2", "3", "X", "O", "6", "7", "8", "9"], game.board )
+		game.board[8] = "X"
+		assert_equal(["O", "2", "3", "X", "O", "6", "7", "8", "X"], game.board )
+		end
+			
+		
+		
+		
+		
 	
 	
 	
 end
 
+	
 	
 	
 	
