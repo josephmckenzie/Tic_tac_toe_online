@@ -8,12 +8,6 @@ class Gameplayers
 			@type = ""
 			@level = ""
 		end
-
-		
-		def marker_valid?(p1)
-		p1 == "X" || p1 == "O"
-		end
-		
 		
 		def p2
 			if	player1 == "X"

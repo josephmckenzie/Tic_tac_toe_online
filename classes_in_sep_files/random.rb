@@ -1,8 +1,8 @@
-class Random
+	class Random               
 
 	attr_accessor :game_board
 
-	def initialize(game_board)
+	def initialize(game_board)  
 		@game_board = game_board
 	end
 	
@@ -15,8 +15,6 @@ class Random
 		end
 	end
 end
-		
-	
 
 	
 	

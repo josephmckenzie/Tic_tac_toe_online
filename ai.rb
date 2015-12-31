@@ -1,8 +1,8 @@
-class Easy
+class Easy                    
 
 	attr_accessor :game_board
 
-	def initialize(game_board)
+	def initialize(game_board)  
 		@game_board = game_board
 	end
 	
@@ -31,7 +31,7 @@ class Medium
 			elsif computer_blocking_move()
 			elsif computer_fork_move()
 			elsif computer_fork_block()
-			elsif @medium_move = computer_random_move()
+			else @medium_move = computer_random_move()
 		end
 		return @medium_move
 	end
@@ -138,13 +138,15 @@ end
 
 class Negamax
 
-	attr_accessor :game_board
-	def initialize(game_board)
+	attr_accessor :game_board, :players
+	def initialize(game_board,players)
 		@game_board = game_board
+		@players = players
 	end
 
-	def computer_move(player_marker)
+	def computer_move()
 		depth = 1
+		player_marker = players.current_player
 		negamax(game_board.board, player_marker, depth)
 		return @best_move
 	end

@@ -1,50 +1,47 @@
-
 require 'sinatra'
-require_relative "messages.rb"
-require_relative "random.rb"
-require_relative "medium.rb"
-require_relative "negamax.rb"
+
+
 require_relative "gameboard.rb"
+require_relative "ai.rb"
 require_relative "gameplayers.rb"
 require_relative "moderately_easy.rb"
 require_relative "simple.rb"
-message = Messages.new
 play_board = Gameboard.new()
 players = Gameplayers.new()
-
+# ai_initi = false
 ai = ""
 
 
 get '/tictactoe' do
-	erb :OneplayerorTwoplayer, :locals => {:message => message.play , :board => play_board.board}
+	erb :OneplayerorTwoplayer, :locals => {:message => "!! It's Tic Tac Toe time !!", :board => play_board.board}
 end
 
 post '/tictactoe' do
 	players.type = params[:gametype]
 	if players.type == "1"
-		erb :howhard, :locals => {:message => message.one_player, :board => play_board.board}
+		erb :howhard, :locals => {:message => "You Chose a 1 Player VS the Computer Game", :board => play_board.board}
 	else
-		erb :marker, :locals => {:message => message.two_player, :board => play_board.board}
+		erb :marker, :locals => {:message => "You Chose a 2 player game", :board => play_board.board}
 	end
 end
 
 post '/marker' do
 		players.level = params[:level] 
 		if players.level == "easy"
-		ai = Random.new(play_board)
-			erb :marker, :locals => {:message => message.easy, :board => play_board.board}
+		ai = Easy.new(play_board)
+			erb :marker, :locals => {:message => "Really your gonna play EASY??", :board => play_board.board}
 		elsif players.level =="mild"
 		ai = ModEasy.new(play_board, players)
-			erb :marker, :locals => {:message => message.mild, :board => play_board.board}
+			erb :marker, :locals => {:message => "Really your gonna play Mild??", :board => play_board.board}
 		elsif players.level =="simple"
 		ai = Simple.new(play_board, players)
-			erb :marker, :locals => {:message => message.simple, :board => play_board.board}
+			erb :marker, :locals => {:message => "Really your gonna play Simple??", :board => play_board.board}
 		elsif players.level == "medium"
 		ai = Medium.new(play_board, players)
-			erb :marker, :locals => {:message => message.medium, :board => play_board.board}
+			erb :marker, :locals => {:message => "MEDIUM is cool but how about HARD??", :board => play_board.board}
 		else 	
 		ai = Negamax.new(play_board,players)
-			erb :marker, :locals => {:message => message.negamax, :board => play_board.board}
+			erb :marker, :locals => {:message => "Hard?? You know it cant be beat right?", :board => play_board.board}
 
 		end
 end
@@ -67,7 +64,7 @@ post '/game' do
 	else
 		erb :squares, :locals => {:p1 => players.player1, 
 								  :p2 => players.player2, 
-								  :invaild => "Hey player #{players.current} #{choice} is already taken", 
+								  :invaild => "Hey #{players.current} #{choice} is already taken", 
 								  :message2 => "Please choose again.", 
 								  :current => players.current, 
 								  :board => play_board.board, 
@@ -76,10 +73,11 @@ post '/game' do
 end
 
 get '/computerai' do
-	player_marker = players.current_player()
-	move = ai.computer_move()
-	play_board.board[move] = player_marker
-		redirect to('/status')
+		player_marker = players.current_player()
+	
+		move = ai.computer_move()
+		play_board.board[move] = player_marker
+	    redirect to('/status')
 end
 
 get '/status' do
@@ -114,7 +112,5 @@ post '/new' do
 	play_board = Gameboard.new()
 	players = Gameplayers.new()
 	ai_initi = false
-		redirect to('/tictactoe')
+	redirect to('/tictactoe')
 end
-
-

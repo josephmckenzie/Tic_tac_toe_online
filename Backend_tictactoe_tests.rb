@@ -83,7 +83,7 @@ class Tictactoe_tests < Minitest::Test
 	# end
 	
 	# def test_for_we_got_a_winner?
-	# game= Gameboard.new 
+	# game= Gameboard.new
 
 		# assert_equal(true, game.winner?(["X","X","X","X","X","6","7","8","9"]))
 		# assert_equal(false, game.winner?(["1","X","X","X","5","6","7","8","9"]))

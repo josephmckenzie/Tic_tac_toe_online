@@ -5,10 +5,10 @@ require_relative"gameboard.rb"
 
 
 class Messages
-attr_reader :play, :one_player, :two_player, :easy, :mild, :simple, :medium, :hard, :invalid
-attr_accessor :players, :gameboard
-players = Gameplayers.new
-board = Gameboard.new
+# attr_reader :play, :one_player, :two_player, :easy, :mild, :simple, :medium, :hard, :invalid
+# attr_accessor :players, :gameboard
+# players = Gameplayers.new
+# board = Gameboard.new
 
 def play
 "Lets Play Some Tic-Tac-Toe"

@@ -13,7 +13,7 @@ class Negamax
 		return @best_move
 	end
 	
-	private
+
 	
 	def negamax(board, mark, depth)
 		mark == "O" ? opponent = "X" : opponent = "O"
