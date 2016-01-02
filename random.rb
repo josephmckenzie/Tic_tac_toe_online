@@ -1,4 +1,4 @@
-	class Random               
+class Easy                    
 
 	attr_accessor :game_board
 
@@ -15,9 +15,3 @@
 		end
 	end
 end
-
-	
-	
-	
-
-

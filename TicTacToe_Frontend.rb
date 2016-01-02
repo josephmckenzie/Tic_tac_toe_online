@@ -1,19 +1,20 @@
 require 'sinatra'
-
-
-require_relative "gameboard.rb"
-require_relative "ai.rb"
-require_relative "gameplayers.rb"
+require_relative "random.rb"
+require_relative "negamax.rb"
+require_relative "medium.rb"
 require_relative "moderately_easy.rb"
 require_relative "simple.rb"
+require_relative "gameboard.rb"
+require_relative "gameplayers.rb"
 play_board = Gameboard.new()
 players = Gameplayers.new()
 # ai_initi = false
 ai = ""
 
 
+
 get '/tictactoe' do
-	erb :OneplayerorTwoplayer, :locals => {:message => "!! It's Tic Tac Toe time !!", :board => play_board.board}
+	erb :OneplayerorTwoplayer, :locals => {:message => "Lets Play Some Tic-Tac-Toe", :board => play_board.board}
 end
 
 post '/tictactoe' do
@@ -32,10 +33,10 @@ post '/marker' do
 			erb :marker, :locals => {:message => "Really your gonna play EASY??", :board => play_board.board}
 		elsif players.level =="mild"
 		ai = ModEasy.new(play_board, players)
-			erb :marker, :locals => {:message => "Really your gonna play Mild??", :board => play_board.board}
+			erb :marker, :locals => {:message => "Really Mild?? Mild is a Sauce not a level.", :board => play_board.board}
 		elsif players.level =="simple"
 		ai = Simple.new(play_board, players)
-			erb :marker, :locals => {:message => "Really your gonna play Simple??", :board => play_board.board}
+			erb :marker, :locals => {:message => "Simple?? Comon man Try a harder level", :board => play_board.board}
 		elsif players.level == "medium"
 		ai = Medium.new(play_board, players)
 			erb :marker, :locals => {:message => "MEDIUM is cool but how about HARD??", :board => play_board.board}
@@ -74,10 +75,11 @@ end
 
 get '/computerai' do
 		player_marker = players.current_player()
-	
+
 		move = ai.computer_move()
-		play_board.board[move] = player_marker
-	    redirect to('/status')
+
+	play_board.board[move] = player_marker
+	redirect to('/status')
 end
 
 get '/status' do

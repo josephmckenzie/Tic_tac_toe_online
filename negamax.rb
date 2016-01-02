@@ -13,11 +13,11 @@ class Negamax
 		return @best_move
 	end
 	
-
+	private
 	
 	def negamax(board, mark, depth)
 		mark == "O" ? opponent = "X" : opponent = "O"
-		if game_board.winner?(mark) || game_board.board_full?(board)
+		if game_board.winner?(mark) || game_board.board_full?()
 			return game_result(mark, opponent)
 		else 
 			max = -1.0/0

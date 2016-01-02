@@ -4,32 +4,38 @@
 <link rel="stylesheet" href="/style.css">
 
 </head>
+<!DOCTYPE html>
+<html>
 
+
+</body>
+</html>
 <body bgcolor="green">
-
+<body background="TicTacToePowerPoint1.jpg" bgcolor="#333333"> 
 <div>
 <br>
 <img src="/mm.png">
-
-<p style="color:red"><b>
-<br><%=message%></b></p>
-	
-<table> 
+<br><br>
+<p style="color:red">
+<lo><b><%=message%></lo></b></p>
+	<br><br><table>
  <tr>
-  <td class="br"> <input type="submit" name="choice" value = "1"> </td><td class="br"> <input type="submit" name="choice"  value="2"></td><td class="b"> <input type="submit" name="choice"  value="3"></td>
+  <td class="br"><%=board[0]%></td><td class="br"><%=board[1]%></td><td class="b"><%=board[2]%></td>
  </tr><tr>
-  <td class="br"> <input type="submit" name="choice"  value="4"></td><td class="br"> <input type="submit" name="choice"  value="5"></td><td class="b"> <input type="submit" name="choice"  value="6"></td>
+  <td class="br"><%=board[3]%></td><td class="br"><%=board[4]%></td><td class="b"><%=board[5]%></td>
  </tr><tr>
-  <td class="r"> <input type="submit" name="choice"  value="7"></td><td class="r"> <input type="submit" name="choice"  value="8"></td><td> <input type="submit" name="choice"  value="9"></td>
+  <td class="r"><%=board[6]%></td><td class="r"><%=board[7]%></td><td><%=board[8]%></td>
  </tr>
 </table>
-<br>
+
+<br><br><br>
  
- <form action="/tictactoe" method="POST">
+ <form action="/tictactoe" method="POST"><p style="color:white"><b>
 				<input type="radio" name="gametype" value="1">  1 Player Game
 				<br>
 				<input class="2p" type="radio" name="gametype" value="2">  2 Player Game
 				<br><br>
 				<input type="submit" name="submit" value="Submit">
-				</form>
+				</form><br><br>
 				<b><p><a href="Console.exe" download="Console.exe">***** Download & Play In Dos ***** </a></p></b>
+
