@@ -10,6 +10,17 @@ play_board = Gameboard.new()
 players = Gameplayers.new()
 # ai_initi = false
 ai = ""
+enable :sessions
+
+get '/' do 
+	erb :home, :locals => {}	
+end
+
+get '/rules' do
+	erb :rules, :locals => {}
+end
+
+
 
 
 
@@ -19,7 +30,9 @@ end
 
 post '/tictactoe' do
 	players.type = params[:gametype]
-	if players.type == "1"
+	session[:gametype] = params[:gametype]
+	
+	if session[:gametype] == "1"
 		erb :howhard, :locals => {:message => "You Chose a 1 Player VS the Computer Game", :board => play_board.board}
 	else
 		erb :marker, :locals => {:message => "You Chose a 2 player game", :board => play_board.board}
@@ -28,16 +41,17 @@ end
 
 post '/marker' do
 		players.level = params[:level] 
-		if players.level == "easy"
+		session[:level] = params[:level]
+		if session[:level] == "easy"
 		ai = Easy.new(play_board)
 			erb :marker, :locals => {:message => "Really your gonna play EASY??", :board => play_board.board}
-		elsif players.level =="mild"
+		elsif session[:level] =="mild"
 		ai = ModEasy.new(play_board, players)
 			erb :marker, :locals => {:message => "Really Mild?? Mild is a Sauce not a level.", :board => play_board.board}
-		elsif players.level =="simple"
+		elsif session[:level] =="simple"
 		ai = Simple.new(play_board, players)
 			erb :marker, :locals => {:message => "Simple?? Comon man Try a harder level", :board => play_board.board}
-		elsif players.level == "medium"
+		elsif session[:level] == "medium"
 		ai = Medium.new(play_board, players)
 			erb :marker, :locals => {:message => "MEDIUM is cool but how about HARD??", :board => play_board.board}
 		else 	
@@ -48,14 +62,19 @@ post '/marker' do
 end
 
 post '/squares' do
+	
+	session[:XorO] = params[:XorO]
 	players.player1 = params[:XorO]
 	players.player2 = players.p2()
+	
 	erb :squares, :locals => {:p1 => players.player1, :p2 => players.player2, 
 							  :invaild => "", :message2 => "Player 1 is #{players.player1} & Player 2 is #{players.player2} ", 
 							  :current => players.current, :board => play_board.board, :type => players.type}
 end
 
 post '/game' do
+
+	session[:choice] = params[:choice].to_i
 	choice = params[:choice].to_i
 	player_marker = players.current_player()
 	
