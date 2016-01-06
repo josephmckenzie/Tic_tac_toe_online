@@ -8,7 +8,7 @@ require_relative "gameboard.rb"
 require_relative "gameplayers.rb"
 play_board = Gameboard.new()
 players = Gameplayers.new()
-# ai_initi = false
+
 ai = ""
 enable :sessions
 
@@ -92,6 +92,7 @@ post '/game' do
 	end	
 end
 
+
 get '/computerai' do
 		player_marker = players.current_player()
 
@@ -109,15 +110,31 @@ get '/status' do
 	end
 	
 	players.current = players.change()
-	redirect to('/computerai') if players.type == "1" && players.current == 2
-	erb :squares, :locals => {:p1 => players.player1, 
+	if players.type == "1" && players.current == 2
+	 redirect to('/computerai') 
+	 else
+		redirect to('/aimove')
+	end
+	
+	
+end
+
+get '/aimove' do
+
+players.type == "1" && players.current == 1
+erb :squares, :locals => {:p1 => players.player1, 
 							  :p2 => players.player2, 
 							  :invaild => "", 
 							  :message2 => "", 
 							  :current => players.current, 
 							  :board => play_board.board, 
 							  :type => players.type}	
-end
+
+
+
+	end
+
+
 
 get '/win' do
 	erb :gameover, :locals => {:message => "Player #{players.current} wins!!! & Player #{players.change()} Sucks", 
@@ -128,6 +145,7 @@ get '/tie' do
 	erb :gameover, :locals => {:message => "Player #{players.current} & Player #{players.change()} TIE ..... Boooo You both suck", 
 							   :board => play_board.board}
 end
+
 
 post '/new' do
 	play_board = Gameboard.new()
