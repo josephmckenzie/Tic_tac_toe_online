@@ -84,7 +84,7 @@ post '/game' do
 	else
 		erb :squares, :locals => {:p1 => players.player1, 
 								  :p2 => players.player2, 
-								  :invaild => "Hey #{players.current} #{choice} is already taken", 
+								  :invaild => "Hey Player #{players.current} #{choice} is already taken", 
 								  :message2 => "Please choose again.", 
 								  :current => players.current, 
 								  :board => play_board.board, 
@@ -115,24 +115,19 @@ get '/status' do
 	 else
 		redirect to('/aimove')
 	end
-	
-	
 end
 
 get '/aimove' do
 
-players.type == "1" && players.current == 1
-erb :squares, :locals => {:p1 => players.player1, 
+	players.type == "1" && players.current == 1
+		erb :squares, :locals => {:p1 => players.player1, 
 							  :p2 => players.player2, 
 							  :invaild => "", 
 							  :message2 => "", 
 							  :current => players.current, 
 							  :board => play_board.board, 
 							  :type => players.type}	
-
-
-
-	end
+end
 
 
 
