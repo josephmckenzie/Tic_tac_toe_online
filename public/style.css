@@ -1,17 +1,17 @@
-img {display:block;margin:0 auto;border: 3px solid #000080;}
+img {display:block;margin:0 auto;border: 3px solid #191970;}
 
-table {font:2.0em comic sans ms;color: black; border-collapse: collapse; margin:auto; }
+table {font:2.0em comic sans ms;color: red; border-collapse: collapse; margin:auto; }
 
 td {padding:20px 25px;}                               
-td.br {border-bottom: 3px solid #000080; border-right: 3px solid #000080;}
+td.br {border-bottom: 5px solid #191970; border-right: 5px solid #191970;}
  
-td.b {border-bottom: 3px solid #000080;} 
-td.r {border-right: 3px solid #000080;}
+td.b {border-bottom: 5px solid #191970;} 
+td.r {border-right: 5px solid #191970;}
 
 
 p {text-align:center;}
 
- lo {text-align:center;font:1.5em consolas;}
+lo {text-align:center;font:1.5em consolas;}
 form {text-align:center;}
 
 
